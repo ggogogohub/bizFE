@@ -1,0 +1,68 @@
+
+<h1>Biz Collection</h1>
+
+<!--
+<h2>There are {{business_list.length}}
+    businesses in bizComponent
+</h2>
+
+<h2>
+    1st business {{business_list[0].name}}
+</h2>
+-->
+
+<!--
+    npm install bootstrap jquery --save
+-->
+    
+<!--
+@for (business of business_list; track business.name){
+    <p>
+        Name: {{business.name}} <br>
+        Town: {{business.town}} <br>
+        Rating: {{business.rating}} 
+    </p>
+}
+-->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            @for (business of business_list; track business.name){
+                <div class="card text-white bg-primary mb-3"
+                style="cursor: pointer;"
+                [routerLink]="['/businesses', business._id.$oid]">
+                    <div class="card-header">
+                        Name: {{business.name}} <br>
+                    </div>
+                    <div class="card-body">
+                        This business based in {{business.town}}
+                    </div>
+                    <div class="card-footer">
+                        Rating: {{business.rating}}
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <button class="btn btn-primary"
+                (click)="previousPage()">
+                Previous
+                </button>
+            </div>
+            <div class="col-sm-4 text-center align-self-center">
+                Showing page {{this.page}} of
+                {{this.dataService.getLastPageNumber()}}
+            </div>
+            <div class="col-sm-4 text-end">
+                <button class="btn btn-primary"
+                (click)="nextPage()">
+                Next
+                </button>
+        </div>
+    </div>
+</div>
+
+
