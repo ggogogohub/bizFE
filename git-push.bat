@@ -1,9 +1,3 @@
-@echo off
-set /p desc=Commit message: 
-if "%desc%"=="" (
-    set desc=Auto-commit on %date% %time%
-)
-
-git add .
-git commit -m "%desc%"
-git push origin master
+git remote add origin https://github.com/ggogogohub/bizFE.git
+git branch -M main
+git push -u origin main

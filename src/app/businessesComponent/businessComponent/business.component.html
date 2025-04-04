@@ -2,8 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            @for (business of business_list; track business.name){
-            <div class="card text-white bg-primary mb-3">
+            <div *ngFor="let business of business_list" class="card text-white bg-primary mb-3">
                 <div class="card-header">
                     Name: {{business.name}} <br>
                 </div>
@@ -11,10 +10,12 @@
                     This business based in {{business.town}}
                 </div>
                 <div class="card-footer">
-                    Rating: {{business.rating}}
+                    <span *ngFor="let star of [].constructor(business.rating)">
+                        <img src="./images/star.png" alt="star for rating"
+                        style="width: 30px; height: 30px;">
+                    </span>
                 </div>
             </div>
-            }
         </div>
     </div>
 </div>
